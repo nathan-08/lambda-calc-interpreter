@@ -14,7 +14,14 @@ import Lambda (Term(..), Binding(..))
           | i == d = update graft d
           | i <  d = v
           | i >  d = (Var x (Bound (i-1)))
-β_reduce (App t1 t2) = β_reduce (App (β_reduce t1) (β_reduce t2))
+-- consider cases such as ((λx.x)λx.x)y, where
+-- reduction of left arm of an Application results in
+-- an Abstraction, so that the Application which was not
+-- originally a redex, has become one after the reduction of
+-- its left arm.
+β_reduce (App t1 t2) = case β_reduce t1 of
+                         t1'@(Abs _ _) -> β_reduce (App t1' t2)
+                         t1'           -> App t1' (β_reduce t2)
 
 update :: Term -> Int -> Term
 -- update bindings of bound variables
