@@ -4,4 +4,6 @@ Some combinators
 S ≡ λxyz.xz(yz)
 K ≡ λxy.x
 I ≡ λx.x
-Y = (λx.f(xx))(λx.f(xx))
+Y = λf.(λx.f(xx))(λx.f(xx))
+T = λϕxy.ϕyx -- Vertauschungsfunktion, e.g.
+    	     	T(λxy.xy)ab => ba

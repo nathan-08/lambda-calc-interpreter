@@ -1,6 +1,7 @@
 import Parser (try_parse)
 import Lambda (render)
 import BetaReduction (β_reduce)
+import Combinators
 
 -- evaluate Y combinator on a constant function (will terminate)
 yf = "(λf.(λx.f(xx))(λx.f(xx)))λy.a"

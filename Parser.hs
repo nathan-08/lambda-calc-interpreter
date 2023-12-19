@@ -55,13 +55,6 @@ bound_term :: Parser Term
 bound_term = do t <- term
                 return $ set_bindings t
 
-i = "λx.x"
-k = "λxy.x"
-s = "λxyz.xz(yz)"
-t = "(λx.xy)(λz.y)"
-ω = "(λx.xx)(λx.xx)"
-y = "λf.(λx.f(xx))(λx.f(xx))"
-
 -- extraction functions --
 
 try_parse :: String -> Maybe Term
