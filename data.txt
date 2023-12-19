@@ -1,0 +1,7 @@
+Some combinators
+
+Ω ≡ (λx.xx)(λx.xx)
+S ≡ λxyz.xz(yz)
+K ≡ λxy.x
+I ≡ λx.x
+Y = (λx.f(xx))(λx.f(xx))
